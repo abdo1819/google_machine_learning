@@ -15,10 +15,7 @@ clf = clf.fit(train_data, train_target)
 #test
 print(iris.target[[0,50,100]])
 print(clf.predict(iris.data[[0,50,100]]))
-
-##from sklearn.externals.six import StringIO
-##import pydot
-##dot_data = StringIO() 
+#make the graph
 dot_data = tree.export_graphviz(clf,
                      out_file=None,
                      feature_names = iris.feature_names,
@@ -28,4 +25,4 @@ dot_data = tree.export_graphviz(clf,
 
 graph = graphviz.Source(dot_data)
 graph.render("iris")
-####run command ( dot -Tpdf tree.dot -o tree.pdf)
+#### or run command ( dot -Tpdf tree.dot -o tree.pdf)
